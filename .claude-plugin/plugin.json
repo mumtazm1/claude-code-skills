@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "claude-code-skills",
+  "description": "Two Claude Code skills: expert-opinion (direct, research-grounded decision consulting) and publicize (refactor private repos into public ones without breaking the private version).",
+  "version": "0.1.0",
+  "author": {
+    "name": "mumtazm1"
+  },
+  "homepage": "https://github.com/mumtazm1/claude-code-skills",
+  "repository": "https://github.com/mumtazm1/claude-code-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "decision-making",
+    "open-source",
+    "workflow"
+  ]
+}

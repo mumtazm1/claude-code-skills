@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-skills",
+  "description": "Two Claude Code skills: expert-opinion (decision consulting) and publicize (ship private repos as public).",
+  "owner": {
+    "name": "mumtazm1",
+    "url": "https://github.com/mumtazm1"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-skills",
+      "source": "./",
+      "description": "expert-opinion and publicize skills",
+      "version": "0.1.0",
+      "category": "workflow"
+    }
+  ]
+}
