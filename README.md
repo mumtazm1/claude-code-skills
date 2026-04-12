@@ -6,7 +6,7 @@ Claude Code skills I use day to day:
 
 **publicize** (ship a private repo as public without breaking the version you still use).
 
-Distributed as a Claude Code plugin marketplace. One git repo, one plugin, two skills.
+Distributed as a Claude Code plugin marketplace.
 
 ## Install
 
