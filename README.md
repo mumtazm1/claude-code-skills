@@ -55,9 +55,9 @@ Second run, with `/expert-opinion`:
 
 > Pick: Airbyte OSS, self-hosted. Long-term optionality decides this. Airbyte has a published Python connector SDK and 300+ pre-built sources. PeerDB has three sources and no custom-connector framework. [PeerDB supported-connectors matrix, as of 2026-04]
 
-Same question. Actual web searches, real connector matrices, inline citations, a data-freshness line. The answer I'd have written myself. I didn't have to do the lookups.
+Same question. Actual web searches, real connector matrices, inline citations, a data-freshness line. The answer I'd have written myself.
 
-The skill doesn't make Claude smarter. It forces the model to look things up instead of guessing. Like Perplexity, but inside Claude Code.
+By forcing Claude to look things up instead of guessing, the results are much more grounded in reality.
 
 See [`skills/expert-opinion/SKILL.md`](skills/expert-opinion/SKILL.md).
 
