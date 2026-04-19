@@ -43,6 +43,22 @@ Claude's default voice at decision points is too agreeable and relies on trainin
 
 Trigger it by saying "expert opinion", "second opinion", "what would a [role] say", or "help me decide". The skill enforces a four-step protocol: name the professional, pull current sources (with cross-referencing and date-stamping), synthesize internally, and return a short verdict with inline citations and a data-freshness line.
 
+#### An example
+
+I asked Claude Code how I'd recommend syncing Postgres to Snowflake for a startup with ~100GB of data, as if I were the consultant answering.
+
+First run, no skill, Claude gave me specific numbers. "4-6 hours to stand up the first source, ~1 hour per additional source." "Don't backfill through dlt or Airbyte, dump to Parquet first." It sounded authoritative.
+
+I pushed back and told Claude to actually verify. It admitted the hours were fabricated and the dogma about backfills had no source. It was predicting plausible tokens instead of answering the question.
+
+Second run, with `/expert-opinion`:
+
+> Pick: Airbyte OSS, self-hosted. Long-term optionality decides this. Airbyte has a published Python connector SDK and 300+ pre-built sources. PeerDB has three sources and no custom-connector framework. [PeerDB supported-connectors matrix, as of 2026-04]
+
+Same question. Actual web searches, real connector matrices, inline citations, a data-freshness line. The answer I'd have written myself. I didn't have to do the lookups.
+
+The skill doesn't make Claude smarter. It forces the model to look things up instead of guessing. Like Perplexity, but inside Claude Code.
+
 See [`skills/expert-opinion/SKILL.md`](skills/expert-opinion/SKILL.md).
 
 ### publicize
