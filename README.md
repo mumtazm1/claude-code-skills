@@ -1,10 +1,14 @@
 # claude-code-skills
 
-Claude Code skills I use day to day: 
+Claude Code skills I use day to day:
 
-**expert-opinion** (direct, research-grounded decision consulting) 
+**expert-opinion** (direct, research-grounded decision consulting)
 
-**publicize** (ship a private repo as public without breaking the version you still use).
+**publicize** (ship a private repo as public without breaking the version you still use)
+
+**clickup-sync** (read-only sync of every ClickUp task assigned to you, zero config beyond the API token)
+
+**create-monday-task** (structured Monday.com items with subitems and plain-prose context notes)
 
 Distributed as a Claude Code plugin marketplace.
 
@@ -31,9 +35,11 @@ If you'd rather drop the skills straight into your user config:
 git clone https://github.com/mumtazm1/claude-code-skills.git
 cp -r claude-code-skills/skills/expert-opinion ~/.claude/skills/
 cp -r claude-code-skills/skills/publicize ~/.claude/skills/
+cp -r claude-code-skills/skills/clickup-sync ~/.claude/skills/
+cp -r claude-code-skills/skills/create-monday-task ~/.claude/skills/
 ```
 
-Restart Claude Code. Both skills will register automatically.
+Restart Claude Code. All four skills will register automatically.
 
 ## Skills
 
@@ -68,6 +74,26 @@ Turns a private repo into a public one without the usual failure modes: committe
 The skill runs a nine-phase workflow (recover originals, sandbox, scan, triage, refactor-first, history rewrite, verify, README review, push private, review rendering, flip public) with hard gates at every destructive step. Uses `gitleaks` and `git-filter-repo` where available; falls back to `ripgrep` patterns when not.
 
 See [`skills/publicize/SKILL.md`](skills/publicize/SKILL.md) and its supporting files (`workflow.md`, `scanner-patterns.md`, `abstraction-recipes.md`, `history-rewrite.md`, `per-repo-archetypes.md`).
+
+### clickup-sync
+
+Show every ClickUp task assigned to you across every workspace your API token has access to. Auto-discovers your user ID and workspaces from the token, so the only thing to configure is the token itself. Read-only, and API calls happen inside subagents so raw JSON never lands in your main context.
+
+Trigger it by saying "clickup sync", "what am I tagged in on clickup", "check my clickup", or similar. Output is one compact table per workspace (task ID, status, due, priority, list, name), followed by pending/overdue items and recent comment activity grouped by task.
+
+Needs one env var: `CLICKUP_API_TOKEN`. Ships a small `clickup.py` helper (Python standard library, no pip install). The skill uses ClickUp's "Get Filtered Team Tasks" endpoint with the assignee filter, so you don't have to list list IDs or workspace IDs manually.
+
+See [`skills/clickup-sync/SKILL.md`](skills/clickup-sync/SKILL.md).
+
+### create-monday-task
+
+Creates a Monday.com item with a short deliverable-focused title, an HTML context note explaining what it is and why it matters, and subitems that break down the actual work. Each subitem gets its own one-sentence description. Shows a full preview before creating anything; nothing is written to Monday until you confirm.
+
+Writes notes in plain, specific prose. No corporate filler, no "this initiative aims to streamline", no AI voice. The title and subitem style rules reflect my own preference for scannable boards; adjust them before using at team scale.
+
+Needs a Monday.com MCP server configured for your workspace and one config value: the board ID. Group, priority, and status can be referenced by label name; the skill queries the board structure via the MCP and resolves labels to column/option IDs at runtime.
+
+See [`skills/create-monday-task/SKILL.md`](skills/create-monday-task/SKILL.md).
 
 ## License
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-code-skills",
-  "description": "Two Claude Code skills: expert-opinion (decision consulting) and publicize (ship private repos as public).",
+  "description": "Four Claude Code skills: expert-opinion (decision consulting), publicize (ship private repos as public), clickup-sync (ClickUp task sync), create-monday-task (structured Monday.com items).",
   "owner": {
     "name": "mumtazm1",
     "url": "https://github.com/mumtazm1"
@@ -10,8 +10,8 @@
     {
       "name": "claude-code-skills",
       "source": "./",
-      "description": "expert-opinion and publicize skills",
-      "version": "0.1.0",
+      "description": "expert-opinion, publicize, clickup-sync, create-monday-task skills",
+      "version": "0.2.0",
       "category": "workflow"
     }
   ]

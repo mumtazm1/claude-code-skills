@@ -1,8 +1,8 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "claude-code-skills",
-  "description": "Two Claude Code skills: expert-opinion (direct, research-grounded decision consulting) and publicize (refactor private repos into public ones without breaking the private version).",
-  "version": "0.1.0",
+  "description": "Four Claude Code skills: expert-opinion (research-grounded decision consulting), publicize (refactor private repos into public ones without breaking the private version), clickup-sync (read-only sync of ClickUp tasks assigned to you), create-monday-task (structured Monday.com items with subitems and plain-prose notes).",
+  "version": "0.2.0",
   "author": {
     "name": "mumtazm1"
   },
